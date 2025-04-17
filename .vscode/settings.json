@@ -1,0 +1,156 @@
+{
+    "workbench.startupEditor": "none",
+    "workbench.editor.showTabs": "multiple",
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.activityBar.location": "hidden",
+    "workbench.statusBar.visible": true,
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideLineNumbers": false,
+    "editor": {
+        "fontSize": 12,
+        "fontFamily": "0xProto",
+        "fontWeight": "bold",
+        "fontLigatures": true,
+        "lineHeight": 1.6,
+        "lineNumbers": "relative",
+        "renderLineHighlight": "all",
+        "cursorBlinking": "smooth",
+        "cursorStyle": "line",
+        "minimap.enabled": false,
+        "bracketPairColorization.enabled": true,
+        "guides.bracketPairs": "active",
+        "formatOnSave": true,
+        "renderWhitespace": "none",
+        "tokenColorCustomizations": {
+            "textMateRules": [
+                {
+                    "scope": [
+                        "comment"
+                    ],
+                    "settings": {
+                        "foreground": "#FFD700",
+                        "fontStyle": "bold"
+                    }
+                }
+            ]
+        }
+    },
+    "terminal.integrated": {
+        "fontSize": 12,
+        "fontFamily": "Hack",
+        "lineHeight": 1.6
+    },
+    "vim": {
+        "useSystemClipboard": true,
+        "handleKeys": {
+            "<C-c>": false,
+            "<C-v>": false,
+            "<C-a>": false
+        },
+        "visualModeKeyBindingsNonRecursive": [
+            {
+                "before": [
+                    "<C-a>"
+                ],
+                "commands": [
+                    "editor.action.selectAll"
+                ]
+            }
+        ],
+        "insertModeKeyBindingsNonRecursive": [
+            {
+                "before": [
+                    "<C-v>"
+                ],
+                "commands": [
+                    "editor.action.clipboardPasteAction"
+                ]
+            }
+        ],
+        "normalModeKeyBindingsNonRecursive": [
+            {
+                "before": [
+                    "<C-v>"
+                ],
+                "commands": [
+                    "editor.action.clipboardPasteAction"
+                ]
+            }
+        ]
+    },
+    "workbench.colorCustomizations": {
+        "editor.background": "#1A1A2A",
+        "editorHint.foreground": "#E0E0E0",
+        "terminal.background": "#1A1A2A",
+        "terminal.foreground": "#E0E0E0",
+        "editor.lineHighlightBackground": "#1A1A2A80",
+        "editor.selectionBackground": "#ac0b0b",
+        "editorCursor.foreground": "#FFD700",
+        "editor.foreground": "#E0E0E0",
+        "editorLineNumber.foreground": "#4A4A5A",
+        "editorLineNumber.activeForeground": "#ff7b00"
+    },
+    "workbench.colorTheme": "Monokai",
+    "workbench.iconTheme": "vscode-icons",
+    "window.customTitleBarVisibility": "windowed",
+    "idf.hasWalkthroughBeenShown": true,
+    "C_Cpp_Runner.cCompilerPath": "gcc",
+    "C_Cpp_Runner.cppCompilerPath": "g++",
+    "C_Cpp_Runner.debuggerPath": "gdb",
+    "C_Cpp_Runner.cStandard": "",
+    "C_Cpp_Runner.cppStandard": "",
+    "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
+    "C_Cpp_Runner.useMsvc": false,
+    "C_Cpp_Runner.warnings": [
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wshadow",
+        "-Wformat=2",
+        "-Wcast-align",
+        "-Wconversion",
+        "-Wsign-conversion",
+        "-Wnull-dereference"
+    ],
+    "C_Cpp_Runner.msvcWarnings": [
+        "/W4",
+        "/permissive-",
+        "/w14242",
+        "/w14287",
+        "/w14296",
+        "/w14311",
+        "/w14826",
+        "/w44062",
+        "/w44242",
+        "/w14905",
+        "/w14906",
+        "/w14263",
+        "/w44265",
+        "/w14928"
+    ],
+    "C_Cpp_Runner.enableWarnings": true,
+    "C_Cpp_Runner.warningsAsError": false,
+    "C_Cpp_Runner.compilerArgs": [],
+    "C_Cpp_Runner.linkerArgs": [],
+    "C_Cpp_Runner.includePaths": [],
+    "C_Cpp_Runner.includeSearch": [
+        "*",
+        "**/*"
+    ],
+    "C_Cpp_Runner.excludeSearch": [
+        "**/build",
+        "**/build/**",
+        "**/.*",
+        "**/.*/**",
+        "**/.vscode",
+        "**/.vscode/**"
+    ],
+    "C_Cpp_Runner.useAddressSanitizer": false,
+    "C_Cpp_Runner.useUndefinedSanitizer": false,
+    "C_Cpp_Runner.useLeakSanitizer": false,
+    "C_Cpp_Runner.showCompilationTime": false,
+    "C_Cpp_Runner.useLinkTimeOptimization": false,
+    "C_Cpp_Runner.msvcSecureNoWarnings": false
+}
