@@ -1,58 +1,93 @@
-# IP Kamera Yüz Tanıma Uygulaması
+# IP Kamera Yüz Tanıma Sistemi
 
-Bu uygulama, belirtilen IP adresi üzerinden kamera görüntüsüne erişerek yüz tanıma işlemi yapar.
+Bu proje, IP kameralar üzerinden gerçek zamanlı yüz tanıma işlemi yapan bir sistemdir. Sistem, önceden tanıtılan kişilerin yüzlerini tanır, kamera görüş alanından geçtiğinde bildirim verir ve isteğe bağlı olarak bu görüntüleri kaydeder.
 
-## Gereksinimler
+## Programlar
 
-Aşağıdaki kütüphanelerin kurulu olması gerekmektedir:
+Sistem iki ana programdan oluşmaktadır:
+
+1. **`yuz_tanimlama.py`**: Tanınması istenen kişilerin yüzlerini sisteme tanıtmak için kullanılır.
+2. **`ip_kamera_yuz_tanima_canli.py`**: IP kamera üzerinden canlı yüz tanıma yapar.
+
+## Kurulum
+
+### Gereksinimler
 
 ```
 pip install -r requirements.txt
 ```
 
-## Kullanım
+requirements.txt dosyası aşağıdaki paketleri içermektedir:
+- opencv-python
+- opencv-contrib-python
+- numpy
+- imutils
 
-İki farklı program bulunmaktadır:
+### IP Kamera Ayarları
 
-### 1. Sabit Ayarlı Program
+Varsayılan IP kamera ayarları:
+- IP: 10.34.51.53
+- Kullanıcı adı: admin
+- Şifre: tps2018
 
-Sabit IP ve kullanıcı bilgileriyle çalışır:
-
-```
-python ip_kamera_yuz_tanima.py
-```
-
-Bu program dosyada tanımlanmış varsayılan ayarları kullanır.
-
-### 2. Etkileşimli Program (Önerilen)
-
-Kullanıcıdan bağlantı bilgilerini alarak çalışır:
-
-```
-python ip_kamera_baglanti.py
-```
-
-Bu program size soracağı bilgilerle kameraya bağlanma denemesi yapar:
-- IP adresi (varsayılan: 10.34.51.53)
-- Kullanıcı adı (varsayılan: admin)
-- Şifre (varsayılan: admin)
-- URL formatı (RTSP, HTTP veya özel format)
-
-Bağlantı başarısız olursa, farklı format ve bilgilerle yeniden deneme seçeneği sunar.
-
-## Ayarlar
-
-Sabit ayarları değiştirmek isterseniz, `ip_kamera_yuz_tanima.py` dosyasındaki şu satırları düzenleyin:
+Farklı bir kamera kullanıyorsanız, `ip_kamera_yuz_tanima_canli.py` dosyasındaki aşağıdaki satırları düzenleyin:
 
 ```python
 ip_adresi = "10.34.51.53"
 kullanici_adi = "admin"
-sifre = "admin"
-url = f"rtsp://{kullanici_adi}:{sifre}@{ip_adresi}/live"
+sifre = "tps2018"
 ```
+
+## Kullanım
+
+### 1. Kişi Tanıtma
+
+İlk olarak, tanımak istediğiniz kişileri sisteme tanıtın:
+
+```
+python yuz_tanimlama.py
+```
+
+- "1) Yeni yüz ekle" seçeneğini seçin
+- Kişinin adını girin
+- Kamera veya dosyadan yüz resimleri ekleyin
+- Program, bu yüzleri kaydedecek ve tanıma modelini eğitecektir
+
+### 2. Canlı Yüz Tanıma
+
+Kişileri tanıttıktan sonra, canlı yüz tanıma programını çalıştırın:
+
+```
+python ip_kamera_yuz_tanima_canli.py
+```
+
+Program çalıştığında:
+- IP kameraya bağlanır
+- Kamera görüntüsündeki yüzleri tespit eder
+- Tanınan kişileri yeşil çerçeve içinde gösterir
+- Tanınmayan kişileri kırmızı çerçeve içinde "Bilinmeyen" olarak işaretler
+- Konsola tanınan kişilerin bilgilerini yazdırır
+
+## Özellikler
+
+- Kameradan geçen tanıdık yüzleri gerçek zamanlı olarak tespit eder
+- Yüzleri %70 ve üzeri benzerlik oranıyla tanır
+- Tanınan kişilerin isimlerini ve benzerlik yüzdesini gösterir
+- Tanınan kişilerin görüntülerini kaydetme seçeneği
+- Güvenilir RTSP bağlantısı ve düşük gecikme
+- Bağlantı sorunlarında otomatik yeniden bağlanma
+- Farklı RTSP URL formatlarını deneme
+
+## Detaylı Kullanım Kılavuzu
+
+Daha detaylı kullanım bilgileri için `kullanim_klavuzu.md` dosyasına bakınız.
 
 ## Sorun Giderme
 
-- 401 Unauthorized hatası alırsanız, doğru kullanıcı adı ve şifre bilgilerini kullandığınızdan emin olun.
-- Farklı kamera modelleri farklı URL formatları kullanabilir, kamera dokümanlarınızı kontrol edin.
-- Etkileşimli programı kullanarak farklı URL formatlarını deneyebilirsiniz. 
+- Kamera bağlantı sorunu yaşıyorsanız IP, kullanıcı adı ve şifre bilgilerini kontrol edin
+- Tanıma kalitesini artırmak için daha fazla ve farklı açılardan yüz örnekleri ekleyin
+- H.264 kodek hataları için RTSP bağlantı parametrelerini ayarlayın
+
+## Not
+
+Bu sistem, genel güvenlik ve tanıma amaçlı kullanılmak üzere tasarlanmıştır. Kişisel verilerin gizliliği ve güvenliği göz önünde bulundurulmalıdır. 
